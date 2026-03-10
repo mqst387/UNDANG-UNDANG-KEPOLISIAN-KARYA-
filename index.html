@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Police Law Calculator</title>
+<title>Undang Undang Kepolisian Karya</title>
 
 <style>
 
@@ -10,53 +10,57 @@ body{
 font-family:Arial;
 background:#0f172a;
 color:white;
-margin:0;
-}
-
-header{
-background:#020617;
-padding:20px;
-text-align:center;
-font-size:26px;
-font-weight:bold;
-}
-
-h2{
-margin-left:30px;
-}
-
-.container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
 padding:30px;
 }
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
+h1{
+text-align:center;
+margin-bottom:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-bottom:50px;
+background:white;
+color:black;
+}
+
+th,td{
+border:1px solid #333;
+padding:8px;
+text-align:center;
+}
+
+tr:hover{
+background:#ddd;
 cursor:pointer;
 }
 
-.card:hover{
-background:#334155;
-}
+.ringan th{background:#6ee7b7;}
+.sedang th{background:#facc15;}
+.berat th{background:#f87171;}
+.lalin th{background:#60a5fa;}
 
 .panel{
 background:#020617;
 padding:20px;
-margin:20px;
 border-radius:10px;
 }
 
+.case{
+display:flex;
+justify-content:space-between;
+margin:5px 0;
+}
+
 button{
-background:#38bdf8;
+background:red;
 border:none;
-padding:6px;
+color:white;
+padding:5px 10px;
 border-radius:6px;
 cursor:pointer;
-margin-left:10px;
 }
 
 </style>
@@ -64,105 +68,119 @@ margin-left:10px;
 
 <body>
 
-<header>
-🚓 POLICE LAW CALCULATOR
-</header>
-
+<h1>UNDANG UNDANG KOTA NEXOTIS</h1>
 
 <div class="panel">
 
-<h2>Daftar Kasus</h2>
+<h2>Daftar Hukuman</h2>
 
 <div id="caseList"></div>
 
-<p>Total Penjara: <span id="time">0</span> bulan</p>
-<p>Total Denda: $<span id="fine">0</span></p>
+<p>Total Masa Tahanan : <span id="time">0</span></p>
+<p>Total Denda : $<span id="fine">0</span></p>
 
 </div>
 
-
+<br><br>
 
 <h2>Tindak Pidana Ringan</h2>
 
-<div class="container">
+<table class="ringan">
 
-<div class="card" onclick="addCase('1(1) Tidak Membawa Kartu Identitas',0,3750)">
-<h3>Pasal 1(1)</h3>
-<p>Tidak Membawa Kartu Identitas</p>
-</div>
+<tr>
+<th>Pasal</th>
+<th>Pelanggaran</th>
+<th>Denda</th>
+<th>Masa Tahanan</th>
+</tr>
 
-<div class="card" onclick="addCase('1(3) Pencemaran Nama Baik',5,7500)">
-<h3>Pasal 1(3)</h3>
-<p>Pencemaran Nama Baik</p>
-</div>
+<tr onclick="addCase('1(1) Tidak Membawa Kartu Identitas',3750,0)">
+<td>1(1)</td><td>Tidak Membawa Kartu Identitas</td><td>$3,750</td><td>Sanksi Sosial</td>
+</tr>
 
-<div class="card" onclick="addCase('2(1) Perkelahian di Tempat Umum',5,7500)">
-<h3>Pasal 2(1)</h3>
-<p>Perkelahian di Tempat Umum</p>
-</div>
+<tr onclick="addCase('1(2) Berada di TKP',3750,5)">
+<td>1(2)</td><td>Berada di TKP</td><td>$3,750</td><td>5</td>
+</tr>
 
-<div class="card" onclick="addCase('2(3) Kerusuhan di Tempat Umum',5,11250)">
-<h3>Pasal 2(3)</h3>
-<p>Kerusuhan di Tempat Umum</p>
-</div>
+<tr onclick="addCase('1(3) Pencemaran Nama Baik',7500,5)">
+<td>1(3)</td><td>Pencemaran Nama Baik</td><td>$7,500</td><td>5</td>
+</tr>
 
-<div class="card" onclick="addCase('7 Melarikan Diri',10,5500)">
-<h3>Pasal 7</h3>
-<p>Melarikan Diri</p>
-</div>
+<tr onclick="addCase('2(1) Perkelahian di Tempat Umum',7500,5)">
+<td>2(1)</td><td>Perkelahian di Tempat Umum</td><td>$7,500</td><td>5</td>
+</tr>
 
-</div>
+<tr onclick="addCase('2(3) Kerusuhan di Tempat Umum',11250,5)">
+<td>2(3)</td><td>Kerusuhan di Tempat Umum</td><td>$11,250</td><td>5</td>
+</tr>
+
+<tr onclick="addCase('2(5) Mabuk di Tempat Umum',7500,5)">
+<td>2(5)</td><td>Mabuk di Tempat Umum</td><td>$7,500</td><td>5</td>
+</tr>
+
+<tr onclick="addCase('7 Melarikan Diri',5500,10)">
+<td>7</td><td>Melarikan Diri</td><td>$5,500</td><td>10</td>
+</tr>
+
+</table>
 
 
 
 <h2>Tindak Pidana Sedang</h2>
 
-<div class="container">
+<table class="sedang">
 
-<div class="card" onclick="addCase('8 Pembegalan / Pencurian',15,20000)">
-<h3>Pasal 8</h3>
-<p>Pembegalan / Pencurian</p>
-</div>
+<tr>
+<th>Pasal</th>
+<th>Pelanggaran</th>
+<th>Denda</th>
+<th>Masa Tahanan</th>
+</tr>
 
-<div class="card" onclick="addCase('9(3) Penyerangan Kepolisian',15,15000)">
-<h3>Pasal 9(3)</h3>
-<p>Penyerangan Kepolisian</p>
-</div>
+<tr onclick="addCase('8 Pembegalan',20000,15)">
+<td>8</td><td>Pembegalan / Pencurian</td><td>$20,000</td><td>15</td>
+</tr>
 
-<div class="card" onclick="addCase('13(1) Mengkonsumsi Narkoba',10,10000)">
-<h3>Pasal 13(1)</h3>
-<p>Mengkonsumsi Narkoba</p>
-</div>
+<tr onclick="addCase('9(3) Penyerangan Kepolisian',15000,15)">
+<td>9(3)</td><td>Penyerangan Kepolisian</td><td>$15,000</td><td>15</td>
+</tr>
 
-<div class="card" onclick="addCase('14(1) Pencucian Uang Merah',25,30000)">
-<h3>Pasal 14(1)</h3>
-<p>Pencucian Uang Merah</p>
-</div>
+<tr onclick="addCase('13(1) Mengkonsumsi Narkoba',10000,10)">
+<td>13(1)</td><td>Mengkonsumsi Narkoba</td><td>$10,000</td><td>10</td>
+</tr>
 
-</div>
+<tr onclick="addCase('14(1) Pencucian Uang Merah',30000,25)">
+<td>14(1)</td><td>Pencucian Uang Merah</td><td>$30,000</td><td>25</td>
+</tr>
+
+</table>
 
 
 
 <h2>Tindak Pidana Berat</h2>
 
-<div class="container">
+<table class="berat">
 
-<div class="card" onclick="addCase('15(1) Perampokan Warung',25,35000)">
-<h3>Pasal 15(1)</h3>
-<p>Perampokan Warung</p>
-</div>
+<tr>
+<th>Pasal</th>
+<th>Pelanggaran</th>
+<th>Denda</th>
+<th>Masa Tahanan</th>
+</tr>
 
-<div class="card" onclick="addCase('15(2) Perampokan Bank',60,90000)">
-<h3>Pasal 15(2)</h3>
-<p>Perampokan Bank</p>
-</div>
+<tr onclick="addCase('15(1) Perampokan Warung',35000,25)">
+<td>15(1)</td><td>Perampokan Warung</td><td>$35,000</td><td>25</td>
+</tr>
 
-<div class="card" onclick="addCase('18(3) Pembunuhan',0,200000)">
-<h3>Pasal 18(3)</h3>
-<p>Pembunuhan (Persidangan)</p>
-</div>
+<tr onclick="addCase('15(2) Perampokan Bank',90000,60)">
+<td>15(2)</td><td>Perampokan Bank</td><td>$90,000</td><td>60</td>
+</tr>
 
-</div>
+<tr onclick="addCase('18(3) Pembunuhan',200000,0)">
+<td>18(3)</td><td>Pembunuhan</td><td>$200,000</td><td>Persidangan</td>
+</tr>
+
+</table>
 
 
 
@@ -171,15 +189,16 @@ margin-left:10px;
 let totalTime = 0
 let totalFine = 0
 
-function addCase(name,time,fine){
+function addCase(name,fine,time){
 
 let list = document.getElementById("caseList")
 
 let div = document.createElement("div")
+div.className="case"
 
 div.innerHTML =
 name +
-" <button onclick='removeCase(this,"+time+","+fine+")'>hapus</button>"
+" <button onclick='removeCase(this,"+fine+","+time+")'>hapus</button>"
 
 list.appendChild(div)
 
@@ -190,7 +209,7 @@ update()
 
 }
 
-function removeCase(btn,time,fine){
+function removeCase(btn,fine,time){
 
 btn.parentElement.remove()
 
